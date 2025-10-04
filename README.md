@@ -1,6 +1,6 @@
 # A neural model for V1 that incorporates dendritic nonlinearities and back-propagating action potentials
 
-The repository includes code that runs the simulations that reproduce the figures in [Rentzeperis, Ilias, Dario Prandi, and Marcelo Bertalmío. "A neural model for v1 that incorporates dendritic nonlinearities and back-propagating action potentials." bioRxiv (2024): 2024-09.](https://www.biorxiv.org/content/10.1101/2024.09.17.613420v1.abstract), currently under revision.
+The repository includes code that runs the simulations that reproduce the figures in [Rentzeperis, Ilias, Dario Prandi, and Marcelo Bertalmío. "A neural model for v1 that incorporates dendritic nonlinearities and back-propagating action potentials." Journal of Neuroscience (2025)](https://www.jneurosci.org/content/early/2025/09/09/JNEUROSCI.1975-24.2025.abstract).
 
 ## A few words about the model 
 
