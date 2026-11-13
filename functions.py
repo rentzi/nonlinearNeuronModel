@@ -372,7 +372,8 @@ def XORPrime(x,norm,maxV):
 
     inpt = np.absolute(x)
     exponent = ((inpt - maxV)/norm)**2
-    part = ((inpt - maxV))*(-2/norm)
+    # d/dx exp(-((|x|-maxV)/norm)^2) = exp(...) * (-2(|x|-maxV)/norm^2) * sign(x)
+    part = (inpt - maxV)*(-2/norm**2)*np.sign(x)
     
     soutP = np.exp(-exponent)*part    
     
@@ -421,7 +422,10 @@ def computeRF(stim,w0,w1, lamda, alpha,pa2m=0.5,lr=0.1):
     
     sigma1p = XORPrime(s2+alpha*vi,XORNorm,maxV)
     
-    part = c1*w1*sigma1p; numerator = (c0*w0) + (part*dxHatDx); denominator = 1 - part*alpha
+    part = c1*w1*sigma1p; numerator = (c0*w0) + (part*dxHatDx)
+    # v_i is a single scalar that feeds back into every pixel's XOR term, so implicit
+    # differentiation gives one scalar denominator summed over all pixels k
+    denominator = 1 - alpha*np.sum(part)
     RF = numerator/denominator
     
     return RF, vi
